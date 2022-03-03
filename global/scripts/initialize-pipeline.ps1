@@ -1,12 +1,14 @@
 ﻿[CmdletBinding()]
 param (
-    [Parameter()][String]$EnvSubscriptions
+    [Parameter()][String]$EnvSubscriptions,
+    [Parameter()][String]$Environment
 )
 
 Function Initialize-Pipeline {
     [CmdletBinding()]
     param (
-        [Parameter()][String]$EnvSubscriptions
+        [Parameter()][String]$EnvSubscriptions,
+        [Parameter()][String]$Environment
     )
     Process {
         Write-Host "EnvSubscriptions: $EnvSubscriptions"
@@ -23,6 +25,9 @@ Function Initialize-Pipeline {
                 | ForEach-Object {
                     $env = $_.Trim()
                     Write-Output "##vso[task.setvariable variable=env-$env-subscription]$subscription"
+                    if ($env -eq $Environment) {
+                        Write-Output "##vso[task.setvariable variable=envSubscription]$subscription"
+                    }
                 }
             }
         }
@@ -30,4 +35,5 @@ Function Initialize-Pipeline {
 }
 
 Initialize-Pipeline `
-    -EnvSubscriptions $EnvSubscriptions
+    -EnvSubscriptions $EnvSubscriptions `
+    -Environment $Environment

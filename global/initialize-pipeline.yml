@@ -7,4 +7,5 @@ steps:
     inputs:
       filePath: azure-pipeline-variables/global/scripts/initialize-pipeline.ps1
       arguments: -EnvSubscriptions "$(varSubscriptions)"
+        -Environment $(env)
       pwsh: true
