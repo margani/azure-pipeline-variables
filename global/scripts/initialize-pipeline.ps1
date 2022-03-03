@@ -22,7 +22,7 @@ Function Initialize-Pipeline {
                 $envs.Split(',', [System.StringSplitOptions]::RemoveEmptyEntries)
                 | ForEach-Object {
                     $env = $_.Trim()
-                    Write-Output "##vso[task.setvariable variable=$env-subscription]$subscription"
+                    Write-Output "##vso[task.setvariable variable=env-$env-subscription]$subscription"
                 }
             }
         }
