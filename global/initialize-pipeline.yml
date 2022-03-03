@@ -1,0 +1,9 @@
+steps:
+  - checkout: self
+  - checkout: templates
+  - task: PowerShell@2
+    displayName: Initialize Pipeline
+    inputs:
+      filePath: pipeline-templates/global/scripts/initialize-pipeline.ps1
+      arguments: -EnvSubscriptions "$(varSubscriptions)"
+      pwsh: true
