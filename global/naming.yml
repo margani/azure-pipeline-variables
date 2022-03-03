@@ -1,0 +1,27 @@
+parameters:
+  - name: env
+    type: string
+  - name: productName
+    type: string
+
+variables:
+  - name: env
+    value: ${{ parameters.env }}
+  - name: productName
+    value: ${{ parameters.productName }}
+
+  # Custom organisation naming conventions
+  - name: varOrg
+    value: myorg
+  - name: varSubscriptions
+    value: "ci, t1, t2, t3: myorg-devtest-subscription; a1, a2, p1, p2, p3: myorg-production-subscription"
+  - name: varNameFormat
+    value: "{org}-{env}-{product}-{type}"
+  - name: varResourceGroupTypeName
+    value: rg
+  - name: varFunctionsTypeName
+    value: func
+  - name: varVnetTypeName
+    value: vnet
+  - name: varSubnetTypeName
+    value: subnet
