@@ -1,6 +1,7 @@
 steps:
   - checkout: self
   - checkout: templates
+  - checkout: variables
   - task: PowerShell@2
     displayName: Initialize Pipeline
     inputs:
