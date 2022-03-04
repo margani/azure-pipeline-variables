@@ -1,0 +1,15 @@
+variables:
+  - template: base.yml
+
+  - name: varOrg
+    value: myorg
+  - name: varNameFormat
+    value: "{org}-{env}-{product}-{type}"
+  - name: varResourceGroupTypeName
+    value: rg
+  - name: varFunctionsTypeName
+    value: func
+  - name: varVnetTypeName
+    value: vnet
+  - name: varSubnetTypeName
+    value: subnet

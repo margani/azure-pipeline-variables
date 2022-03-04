@@ -1,0 +1,7 @@
+variables:
+  - name: dotnetConfiguration
+    value: Release
+  - name: agentPoolVmImage
+    value: ubuntu-latest
+  - name: region
+    value: westeurope

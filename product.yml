@@ -1,0 +1,7 @@
+parameters:
+  - name: productName
+    type: string
+
+variables:
+  - name: productName
+    value: ${{ parameters.productName }}
